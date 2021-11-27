@@ -25,7 +25,6 @@
                                 </b-row>
                             </b-col>
                         </b-row>
-
                     </b-container>
                 </b-tab>
             </b-tabs>
@@ -36,7 +35,7 @@
 <script>
     import Gauge from "./components/Gauge.vue";
     export default {
-        name: "App",    
+        name: "App",   
         components: {
             Gauge
         },

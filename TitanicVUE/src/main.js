@@ -1,10 +1,15 @@
-/*how to prepare develop envirement
- * We need to install  
- * Node.js
- * VUE CLI
- * Echarts
- * BootstrapVue
+/*How to prepare develop env.? To install the following packages under folder /TitanicVUE
+ * node.js
+ * VUE Cli
+ * echarts
+ * bootstrap-vue
+
+ * npm run build
+ * npm run serve
+  
+ You will get the application to run. 
  */
+
 
 import Vue from 'vue';
 import App from './App.vue';
@@ -19,3 +24,4 @@ Vue.use(IconsPlugin)
 new Vue({
     render: h => h(App)
 }).$mount('#app');
+

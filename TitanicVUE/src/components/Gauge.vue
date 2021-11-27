@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<script>    
+<script>
     import * as echarts from 'echarts/core';
     import { GaugeChart } from 'echarts/charts';
     import { CanvasRenderer } from 'echarts/renderers';
@@ -24,7 +24,6 @@
                 var chartDom = document.getElementById(this.echartId);
                 var myChart = echarts.init(chartDom, 'dark');
                 var option;
-
                 const gaugeData = [
                     {
                         value: this.echartValue,
@@ -100,6 +99,7 @@
                     ]
                 };
 
+                // simulation the dynamic data which should get from API
                 setInterval(function () {
                     gaugeData[0].value = +(Math.random() * 100).toFixed(2);
                     myChart.setOption({
