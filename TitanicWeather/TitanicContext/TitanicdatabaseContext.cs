@@ -37,11 +37,11 @@ namespace TitanicWeather.TitanicContext
             {
                 entity.Property(e => e.DateAndTime).HasColumnType("datetime");
 
-                entity.Property(e => e.Humidity).HasColumnType("decimal(10, 4)");
+                entity.Property(e => e.Humidity).HasColumnType("decimal(10, 1)");
 
-                entity.Property(e => e.Pressure).HasColumnType("decimal(10, 4)");
+                entity.Property(e => e.Pressure).HasColumnType("decimal(10, 1)");
 
-                entity.Property(e => e.Temperature).HasColumnType("decimal(10, 4)");
+                entity.Property(e => e.Temperature).HasColumnType("decimal(10, 1)");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -6,6 +6,14 @@ function getWeather(){
         .then(res =>Forecast(res.data.properties.timeseries[0]))
         .catch(err=>console.log(err));
 }
+function getRoomTemp(){
+  axios({
+    method: 'get',
+    url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/Recent'
+  })
+  .then(res=>ShowRoomTemp(res))
+  .catch(err=>console.log(err));
+}
    
 function Forecast(res) {
     document.getElementById('forecast').innerHTML = `
@@ -17,9 +25,19 @@ function Forecast(res) {
     </ul>
   `;
   }
+function ShowRoomTemp(res){
+    document.getElementById('room').innerHTML= `
+    <ul>
+      <li>Temperature ${JSON.stringify(res.data.temperature)}°C</li>
+      <li>pressure ${JSON.stringify(res.data.pressure)}  Pa</li>
+      <li>Relative humididty ${JSON.stringify(res.data.humidity)} %</li>
+    </ul>
+    `;
+}
   
 
-  getWeather()
+  getWeather();;
+  getRoomTemp()
   /* forecast res object for reference
    {
         "time": "2021-11-24T17:00:00Z",

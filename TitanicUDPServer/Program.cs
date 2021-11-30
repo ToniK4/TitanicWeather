@@ -36,9 +36,9 @@ namespace TitanicUDPServer
                 Measurement newMeasure = new Measurement()
                 {
                     DateAndTime = DateTime.Now,
-                    Temperature = Math.Round(decimal.Parse(measArray[0], CultureInfo.InvariantCulture), 4),
-                    Humidity = Math.Round(decimal.Parse(measArray[1], CultureInfo.InvariantCulture), 4),
-                    Pressure = Math.Round(decimal.Parse(measArray[2], CultureInfo.InvariantCulture), 4)
+                    Temperature = Math.Round(decimal.Parse(measArray[0], CultureInfo.InvariantCulture), 1),
+                    Humidity = Math.Round(decimal.Parse(measArray[1], CultureInfo.InvariantCulture), 1),
+                    Pressure = Math.Round(decimal.Parse(measArray[2], CultureInfo.InvariantCulture), 1)
                 };
                 AddMeasurementToDB(newMeasure);
 
