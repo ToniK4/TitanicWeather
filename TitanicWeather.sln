@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicUDPServer", "Titanic
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "TitanicVUE", "TitanicVUE\TitanicVUE.njsproj", "{81199048-1D45-44E6-BC4D-254875DB3E14}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicWeatherTests", "TitanicWeatherTests\TitanicWeatherTests.csproj", "{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{81199048-1D45-44E6-BC4D-254875DB3E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81199048-1D45-44E6-BC4D-254875DB3E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81199048-1D45-44E6-BC4D-254875DB3E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

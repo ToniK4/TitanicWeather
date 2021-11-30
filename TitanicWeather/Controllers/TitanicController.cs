@@ -36,18 +36,5 @@ namespace TitanicWeather.Controllers
             return _manager.GetAllMeasurements();
         }
 
-        // GET api/<TitanicController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-
-        // DELETE api/<TitanicController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
