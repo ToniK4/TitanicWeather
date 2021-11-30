@@ -6,23 +6,17 @@
                     <b-container>
                         <b-row>
                             <b-col>
-                                <b-row>
-                                    <p> Home </p>
-                                    <Gauge echartId="HomeHeating" echartColor="#fac858" echartUnit="Level" />
-                                    <Gauge echartId="HomeTemperature" echartColor="#D03CDD" echartUnit="¡æ" />
-                                    <Gauge echartId="HomeHumidity" echartColor="#27C7C7" echartUnit="%" />
-                                </b-row>
+                                <div style="width:300px"> Home </div>
+                                <Gauge echartId="HomeHeating" echartColor="#fac858" echartUnit="Level" />
+                                <Gauge echartId="HomeTemperature" echartColor="#D03CDD" echartUnit="¡æ" />
+                                <Gauge echartId="HomeHumidity" echartColor="#27C7C7" echartUnit="%" />
                             </b-col>
 
                             <b-col>
-                                <p>
-                                    Today
-                                </p>
-                                <b-row>
-                                    <Gauge echartId="OutTemperature" echartColor="#D03CDD" echartUnit="¡ãC" />
-                                    <Gauge echartId="OutHumidity" echartColor="#27C7C7" echartUnit="%" />
-                                    <Gauge echartId="Wind" echartColor="#ee6666" echartUnit="m/s" />
-                                </b-row>
+                                <div style="width:300px"> Today </div>
+                                <Gauge echartId="OutTemperature" echartColor="#D03CDD" echartUnit="¡ãC" />
+                                <Gauge echartId="OutHumidity" echartColor="#27C7C7" echartUnit="%" />
+                                <Gauge echartId="Wind" echartColor="#ee6666" echartUnit="m/s" />
                             </b-col>
                         </b-row>
                     </b-container>
