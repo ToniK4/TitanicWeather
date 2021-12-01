@@ -40,10 +40,16 @@ namespace TitanicWeather.Controllers
 
         // GET: api/Titanic/Command
         [HttpGet("Command")]
-        public string GetCommand()
+        public int GetCommand()
         {
             return _localManager.GetCommand();
         }
 
+        // POST api/Titanic/SetCommand
+        [HttpPost("SetCommand")]
+        public void Post([FromBody] int command)
+        {
+            _localManager.SetCommand(command);
+        }
     }
 }

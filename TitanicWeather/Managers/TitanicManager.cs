@@ -7,17 +7,16 @@ namespace TitanicWeather.Managers
 {
     public class TitanicManager
     {
+        private static int _command = 0;
 
-        public const string Command = "3";
-
-        //public void SetCommand(string com)
-        //{
-        //    Command = com;
-        //}
-
-        public string GetCommand()
+        public void SetCommand(int com)
         {
-            return Command;
+            _command = com;
+        }
+
+        public int GetCommand()
+        {
+            return _command;
         }
 
     }

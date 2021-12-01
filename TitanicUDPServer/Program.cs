@@ -17,7 +17,6 @@ namespace TitanicUDPServer
         static void Main(string[] args)
         {
             Console.WriteLine("Titanic UDP Server");
-
             //initialize
             UdpClient socket = new UdpClient();
             socket.Client.Bind(new IPEndPoint(IPAddress.Any, 65000));
@@ -40,8 +39,7 @@ namespace TitanicUDPServer
                     Humidity = Math.Round(decimal.Parse(measArray[1], CultureInfo.InvariantCulture), 1),
                     Pressure = Math.Round(decimal.Parse(measArray[2], CultureInfo.InvariantCulture), 1)
                 };
-                AddMeasurementToDB(newMeasure);
-
+                //AddMeasurementToDB(newMeasure);
 
                 dataString = "move: " + dataString;
                 byte[] toBeSend = Encoding.UTF8.GetBytes(dataString);
