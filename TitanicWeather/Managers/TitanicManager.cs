@@ -5,17 +5,19 @@ using System.Threading.Tasks;
 
 namespace TitanicWeather.Managers
 {
-    public static class TitanicManager
+    public class TitanicManager
     {
 
-        public static double Temp { get; set; }
-        public static void SetTemp(double temp)
+        public const string Command = "3";
+
+        //public void SetCommand(string com)
+        //{
+        //    Command = com;
+        //}
+
+        public string GetCommand()
         {
-            Temp = temp;
-        }
-        public static double GetTemperature()
-        {
-            return Temp;
+            return Command;
         }
 
     }

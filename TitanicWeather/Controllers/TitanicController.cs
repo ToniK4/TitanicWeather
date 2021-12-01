@@ -16,24 +16,33 @@ namespace TitanicWeather.Controllers
     public class TitanicController : ControllerBase
     {
         private readonly TitanicManagerDB _manager;
+        private readonly TitanicManager _localManager;
         public TitanicController()
         {
             _manager = new TitanicManagerDB();
+            _localManager = new TitanicManager();
         }
 
 
-        // GET: api/Recent/<TitanicController>
+        // GET: api/Titanic/Recent
         [HttpGet("Recent")]
         public Measurement GetRecentMeasurement()
         {
             return _manager.GetLastMeasurement();
         }
 
-        // GET: api/All/<TitanicController>
+        // GET: api/Titanic/All
         [HttpGet("All")]
         public IEnumerable<Measurement> GetAllMeasurements()
         {
             return _manager.GetAllMeasurements();
+        }
+
+        // GET: api/Titanic/Command
+        [HttpGet("Command")]
+        public string GetCommand()
+        {
+            return _localManager.GetCommand();
         }
 
     }
