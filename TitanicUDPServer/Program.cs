@@ -41,10 +41,10 @@ namespace TitanicUDPServer
                 };
                 //AddMeasurementToDB(newMeasure);
 
-                dataString = "move: " + dataString;
-                byte[] toBeSend = Encoding.UTF8.GetBytes(dataString);
+                dataString = "Data received: " + dataString;
+                byte[] toBeSent = Encoding.UTF8.GetBytes(dataString);
                 //echo back data
-                socket.Send(toBeSend, toBeSend.Length, from);
+                socket.Send(toBeSent, toBeSent.Length, from);
             }
         }
         public static void AddMeasurementToDB(Measurement measurement)
