@@ -35,15 +35,15 @@
          <div class="column windP";>
             <img src="icons\temperature.jpg"/>
             <div class="details">
-              <span class="number">21</span>
-              <span>°</span>C
+              <span id="temp" class="number"></span>
+              <span>°C</span>
             </div>
          </div>
 
           <div class="column humidityP";>
             <img src="icons\humidity.png"/>
             <div class="details">
-              <span>30</span>
+              <span id="humid"></span>
               <p>%</p>
             </div>
           </div>
@@ -58,8 +58,8 @@
         </div>
       </div>
     </div>    
-    
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="room.js"></script>
 
   </body>
 </html>

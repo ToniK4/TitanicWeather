@@ -17,12 +17,12 @@
 
       <div class="weatherBox";>
         <div class="space"></div>
-        <img src="icons\sunny.jpg"/>
+        <img id="pic" src="icons\properIcons\png\clearsky_day.png"/><!---->
         <div class="space"></div>
         <div class="space"></div>
         <div class="temperature">
-          <span class="number">2</span>
-          <span>°</span>C
+          <span id="temp" class="number"></span>
+          <span>°C</span>
           <div class="space"></div>
           <div class="space"></div>
           <div class="space"></div>
@@ -32,7 +32,8 @@
          <div class="column wind";>
             <img src="icons\wind-48.png"/>
             <div class="details">
-              <span>3</span>
+              <span id="wind"></span>
+              <span>m/s</span>
               <p>Wind</p>
             </div>
           </div>
@@ -40,15 +41,16 @@
           <div class="column humidity";>
             <img src="icons\humidity.png"/>
             <div class="details">
-              <span>80%</span>
+              <span id="humid"></span>
+              <span>%</span>
               <p>Humidity</p>
             </div>
           </div>
         </div>
       </div>
     </div>    
-    
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
 
   </body>
 </html>
