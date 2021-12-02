@@ -18,7 +18,7 @@ function Forecast(res) {
   document.getElementById('humid').innerHTML = `
   ${JSON.stringify(res.data.instant.details.relative_humidity)}
   `;
-  str=`icons\\properIcons\\png\\${JSON.stringify(res.data.next_12_hours.summary.symbol_code)}.png`;
+  str=`icons\\properIcons\\png\\${JSON.stringify(res.data.next_1_hours.summary.symbol_code)}.png`;
   document.getElementById('pic').src = str.replace(/"/g,"");
   }
   
