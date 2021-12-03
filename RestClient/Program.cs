@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TitanicWeather.Models;
 
 namespace RestClient
 {
@@ -36,7 +37,7 @@ namespace RestClient
             int command = worker.GetCommand().Result;
 
             //Resetting the command to 0
-            worker.PostItem(0);
+            worker.PostItem(new Command() {integer = 3 });
 
             //Sending to Pi
             if (command == 3)

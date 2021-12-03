@@ -22,14 +22,14 @@ namespace RestClient
                 return _command;
             }
         }
-        public async Task<int> PostItem(int _command)
+        public async Task<Command> PostItem(Command _command)
         {
             using (HttpClient client = new HttpClient())
             {
                 JsonContent serializedCommand = JsonContent.Create(_command);
                 HttpResponseMessage response = await
                     client.PostAsync("https://titanicweatherapi.azurewebsites.net/api/Titanic/SetCommand", serializedCommand);
-                return await response.Content.ReadFromJsonAsync<int>();
+                return await response.Content.ReadFromJsonAsync<Command>();
             }
         }
     }
