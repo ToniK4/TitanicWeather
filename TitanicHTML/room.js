@@ -31,8 +31,8 @@ function ButtonClick() {
     .catch(function (error) {
       console.log(error);
     });
+    console.log("1")
 }
-
-document.getElementById("getdata").addEventListener("click", ButtonClick());
-
 getRoomTemp();
+document.getElementById("getdata").addEventListener("click", ButtonClick);
+
