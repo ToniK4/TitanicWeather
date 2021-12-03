@@ -24,6 +24,12 @@ namespace TitanicWeather.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult OnGet()
+        {
+            return RedirectToPage("/index.html");
+        }
+
         // GET: api/Titanic/Recent
         [HttpGet("Recent")]
         public Measurement GetRecentMeasurement()
@@ -47,9 +53,9 @@ namespace TitanicWeather.Controllers
 
         // POST api/Titanic/SetCommand
         [HttpPost("SetCommand")]
-        public void Post([FromBody] int command)
+        public void Post([FromBody] Command command)
         {
-            _localManager.SetCommand(command);
+            _localManager.SetCommand(command.integer);
         }
     }
 }
