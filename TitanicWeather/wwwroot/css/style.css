@@ -46,8 +46,9 @@ body{
   width: 100px;
 }
 
+
 .weatherBox{
-  height: 600px;
+  height: 650px;
   width: 400px;
   text-align:center;
   flex-direction: column;
@@ -71,6 +72,7 @@ body{
 .weatherBox .bottom-details{
   display: flex;
   width: 100%;
+  height: 17%;
   border-top: 1px solid #ccc;
 }
 
@@ -167,3 +169,119 @@ body{
   font-size: 18px;
   font-weight: bolder;
 }
+
+/* charts */
+*,*:after,*:before{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing:border-box;
+  box-sizing: border-box;
+}
+
+#canvas{
+  width: 100%;
+}
+
+/* toggle switch  */
+input[type=checkbox].toggle{
+  display: none;
+}
+
+input[type=checkbox].toggle + label{
+  display: inline-block;
+  height: 4rem;
+  width: 10rem;
+  position: relative;
+  font-size: 1.6rem;
+  border: 0.3rem solid skyblue;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius:4rem;
+}
+
+input[type=checkbox].toggle + label:before{
+  width: 6rem;
+  text-align: center;
+  z-index:2;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  transform:translateY(-50%);
+  text-overflow: ellipsis; 
+  overflow: hidden;   
+}
+
+input[type=checkbox].toggle + label:after{
+  position: absolute;
+  margin: 0.2rem;
+  height: 3rem;
+  width: 3rem;
+  content: '';
+  z-index:3;
+  border-radius:40px;
+}
+
+input[type=checkbox].toggle:not(:checked) + label:before{
+  content: attr(data-unchecked);
+  right:0;
+  left:auto;
+  opacity: 1;
+  color: white;
+}
+
+/* toggle.heating */
+
+input[type=checkbox].toggle:not(:checked) + label.heating{
+  text-align: left;
+  background-color: rgb(167, 160, 160);
+}
+
+input[type=checkbox].toggle:not(:checked) + label.heating:after{
+  left:0.1rem;
+  background-color:grey;
+}
+
+input[type=checkbox].toggle:checked + label.heating{
+  text-align: left;
+  background-color: #3ba272;
+}
+
+input[type=checkbox].toggle:checked + label.heating:after{
+  left:6rem;
+  background-color: lightgreen;
+}
+
+/* toggle.time */
+
+input[type=checkbox].toggle:not(:checked) + label.time:after{
+  left:0.1rem;
+  background-color:#73c0de;
+}
+
+input[type=checkbox].toggle:checked + label.time:after{
+  left:6rem;
+  background-color: #73c0de;
+}
+
+
+input[type=checkbox].toggle:checked + label.time{
+  text-align: left;
+  background-color: #ee6666;
+}
+
+input[type=checkbox].toggle:not(checked) + label.time{
+  text-align: left;
+  background-color: #ee6666;
+}
+
+input[type=checkbox].toggle:checked + label:before{
+  content: attr(data-checked);
+  right:auto;
+  left:0.3rem;
+  opacity: 1;
+  color: white;
+}
+
+/* unlock page */

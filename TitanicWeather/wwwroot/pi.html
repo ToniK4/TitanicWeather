@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="utf-8">
     <title> Titanic Weather </title>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div class="top">
         <div class="nav">
             <a href="\index.html">Welcome</a>
-            <a href="\forecast.html">Forecast</a>
-            <a href="\pi.html">Cute Pi</a>
-            <a href="\energy.html">Energy</a>
+            <a class="active" href="\pi.html">Cute Pi</a>
+            <a href="\forecast.html">Forecast</a>          
+            <a href="\add-on.html">Add On</a>
         </div>
 
         <div class="weatherBox" ;>
 
-            <div class="space"></div>
-            <div class="temperature">
-                <p> chart1</p>
-                <div class="space"></div>
-                <div class="space"></div>
-                <p> chart2</p>
-                <div class="space"></div>
-                <div class="space"></div>
-                <p> chart3</p>
-                <div class="space"></div>
-                <div class="space"></div>
-
+            <div>
+                <button id="getdata">GetCurrentData</button>
             </div>
 
+            <div class="space"></div>
+
+            <!-- Toggle -->
+            <row>
+                <input type="checkbox" class="toggle" id="heating">
+                <label for="heating" class="heating" data-checked="ON" data-unchecked="OFF"></label>
+            </row>
+            
+            <row>
+                <input type="checkbox" class="toggle" id="time">
+                <label for="time" class="time" data-checked="30min" data-unchecked="60min"></label>
+            </row>
+
+            <div class="space"></div>
+
+
+            <!-- Charts -->
+            <div>
+                <canvas id="TempChartPi"></canvas>
+                <canvas id="HumiChart"></canvas>
+            </div>
+
+
+            <!-- bottom-details -->
             <div class="bottom-details">
                 <div class="column windP" ;>
                     <img src="icons\temperature.jpg" />
@@ -52,16 +68,18 @@
                     <img src="icons\heating.jpg" />
                     <div class="details">
                         <span>L 1</span>
-                        <p>Heating</p>
+                        <p>Heat</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        <button id="getdata">GetCurrentData</button>
-    </div>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src=https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js></script>
+    <script type="text/javascript" src="js/custom.js"></script>
     <script src="js/room.js"></script>
+    <script src="js/chartsPi.js"></script>
 </body>
+
 </html>

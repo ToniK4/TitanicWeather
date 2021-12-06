@@ -11,27 +11,21 @@
      <div class="top"> 
         <div class="nav">
           <a href="\index.html">Welcome</a>
-          <a href="\forecast.html">Forecast</a>
           <a href="\pi.html">Cute Pi</a>
-          <a href="\energy.html">Energy</a>
+          <a class="active" href="\forecast.html">Forecast</a>          
+          <a href="\add-on.html">Add On</a>
       </div>
 
-      <div class="weatherBox";>        
-        <div class="space"></div>
-        <div class="temperature">
-         <p> chart1</p> 
-         <div class="space"></div>
-         <div class="space"></div>
-         <p> chart2</p>
-         <div class="space"></div>
-         <div class="space"></div>
-         <p> chart3</p>
-         <div class="space"></div>
-         <div class="space"></div>  
+      <div class="weatherBox";>     
+        <div class="space"></div>   
+          <canvas id="TempChart"> </canvas>
+          <canvas id="HumiChart"> </canvas>
+          <canvas id="WindChart"> </canvas>
+      </div>
          
         </div>     
 
-      <div class="bottom-details">
+     <!--  <div class="bottom-details">
          <div class="column windP";>
             <img src="icons\temperature.jpg"/>
             <div class="details">
@@ -55,11 +49,15 @@
               <p>Wind</p>
             </div>
           </div>          
-        </div>
+        </div> -->
       </div>
     </div>    
     
-    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src=https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="js/room.js"></script>
+    <script src="js/charts.js"></script>
 
   </body>
 </html>

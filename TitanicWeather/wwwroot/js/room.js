@@ -21,9 +21,6 @@ function ButtonClick() {
         url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/SetCommand',
         data: { integer: 3 },
         headers: { contentType: "application/json; charset=utf-8" }
-
-
-
     })
         .then(function (response) {
             console.log(response);
