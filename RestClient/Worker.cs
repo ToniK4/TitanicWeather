@@ -22,7 +22,7 @@ namespace RestClient
                 return _command;
             }
         }
-        public async Task<Command> PostItem(Command _command)
+        public async Task<Command> PostCommand(Command _command)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -30,6 +30,17 @@ namespace RestClient
                 HttpResponseMessage response = await
                     client.PostAsync("https://titanicweatherapi.azurewebsites.net/api/Titanic/SetCommand", serializedCommand);
                 return await response.Content.ReadFromJsonAsync<Command>();
+            }
+        }
+        //Used in UDP Server
+        public async Task<HeatingLevel> PostHeatingLevel(HeatingLevel _heatingLevel)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                JsonContent serializedCommand = JsonContent.Create(_heatingLevel);
+                HttpResponseMessage response = await
+                    client.PostAsync("https://titanicweatherapi.azurewebsites.net/api/Titanic/SetHeatingLevel", serializedCommand);
+                return await response.Content.ReadFromJsonAsync<HeatingLevel>();
             }
         }
     }

@@ -7,6 +7,7 @@ using TitanicWeather.Models;
 using TitanicWeather.Managers;
 using TitanicWeather.TitanicContext;
 using TitanicWeather;
+using RestClient;
 
 namespace TitanicUDPServer
 {
@@ -20,6 +21,7 @@ namespace TitanicUDPServer
             //initialize
             UdpClient socket = new UdpClient();
             socket.Client.Bind(new IPEndPoint(IPAddress.Any, 65000));
+            Worker _worker = new Worker();
 
             while (true)
             {
@@ -40,6 +42,7 @@ namespace TitanicUDPServer
                     Pressure = Math.Round(decimal.Parse(measArray[2], CultureInfo.InvariantCulture), 1)
                 };
                 //AddMeasurementToDB(newMeasure);
+                PostHeatingLevel(_worker, int.Parse(measArray[3]));
 
                 dataString = "Data received: " + dataString;
                 byte[] toBeSent = Encoding.UTF8.GetBytes(dataString);
@@ -50,6 +53,14 @@ namespace TitanicUDPServer
         public static void AddMeasurementToDB(Measurement measurement)
         {
             managerDB.Add(measurement);
+        }
+        public static void PostHeatingLevel(Worker worker, int _integer)
+        {
+            //-1 is the case if we run the script in Pi manually, so we don't want to update the heating level 
+            if (_integer != -1)
+            {
+                worker.PostHeatingLevel(new HeatingLevel() { integer = _integer });
+            }
         }
         
     }

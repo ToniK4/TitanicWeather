@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RestClient\RestClient.csproj" />
     <ProjectReference Include="..\TitanicWeather\TitanicWeather.csproj" />
   </ItemGroup>
 

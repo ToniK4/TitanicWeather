@@ -50,12 +50,26 @@ namespace TitanicWeather.Controllers
         {
             return _localManager.GetCommand();
         }
+        
+        // GET: api/Titanic/HeatingLevel
+        [HttpGet("HeatingLevel")]
+        public int GetHeatingLevel()
+        {
+            return _localManager.GetHeatingLevel();
+        }
 
         // POST api/Titanic/SetCommand
         [HttpPost("SetCommand")]
-        public void Post([FromBody] Command command)
+        public void PostCommand([FromBody] Command command)
         {
             _localManager.SetCommand(command.integer);
+        }
+
+        // POST api/Titanic/SetHeatingLevel
+        [HttpPost("SetHeatingLevel")]
+        public void PostHeatingLevel([FromBody] HeatingLevel heatingLevel)
+        {
+            _localManager.SetHeatingLevel(heatingLevel.integer);
         }
     }
 }

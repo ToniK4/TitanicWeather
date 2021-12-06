@@ -37,10 +37,10 @@ namespace RestClient
             int command = worker.GetCommand().Result;
 
             //Resetting the command to 0
-            worker.PostItem(new Command() {integer = 3 });
+            worker.PostCommand(new Command() {integer = -1 });
 
             //Sending to Pi
-            if (command == 3)
+            if (command >= 0 && command <= 6)
             {
                 Console.WriteLine($"Sending {command} to Pi");
                 SendMessage(command.ToString());
