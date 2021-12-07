@@ -30,6 +30,6 @@ function ButtonClick() {
         });
 }
 
-document.getElementById("getdata").addEventListener("click", ButtonClick());
+document.getElementById("getdata").addEventListener("click", ButtonClick);
 
 getRoomTemp();
