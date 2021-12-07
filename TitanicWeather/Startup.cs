@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,6 +53,11 @@ namespace TitanicWeather
             }
 
             app.UseHttpsRedirection();
+
+            RewriteOptions rewriteOptions = new RewriteOptions()
+                .AddRewrite("home", "index.html", true);
+            app.UseRewriter(rewriteOptions);
+            app.UseDefaultFiles();
 
             app.UseRouting();
 

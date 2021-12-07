@@ -37,17 +37,14 @@ namespace RestClient
             int command = worker.GetCommand().Result;
 
             //Resetting the command to 0
-            worker.PostCommand(new Command() {integer = -1 });
+
+            await worker.PostCommand(new Command() {integer = -1 });
 
             //Sending to Pi
             if (command >= 0 && command <= 6)
             {
                 Console.WriteLine($"Sending {command} to Pi");
                 SendMessage(command.ToString());
-#warning Known bug
-                //ReadKey is here to stop the program from exiting before async finishes.
-                //Exception gets thrown but the program goes on so I don't care.
-                //Console.ReadKey();
             }
         }
     }
