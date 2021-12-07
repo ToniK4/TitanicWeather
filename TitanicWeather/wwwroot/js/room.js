@@ -28,6 +28,7 @@ function ButtonClick() {
         .catch(function (error) {
             console.log(error);
         });
+    console.log("clicked");
 }
 
 document.getElementById("getdata").addEventListener("click", ButtonClick);
