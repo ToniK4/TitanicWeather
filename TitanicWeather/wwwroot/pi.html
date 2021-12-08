@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="top">
+    <div id="app" class="top">
         <div class="nav">
             <a href="\index.html">Welcome</a>
             <a class="active" href="\pi.html">Cute Pi</a>
@@ -17,7 +17,7 @@
             <a href="\add-on.html">Add On</a>
         </div>
 
-        <div class="weatherBox" ;>
+        <div class="weatherBox" >
 
             <div>
                 <button id="getdata">GetCurrentData</button>
@@ -26,15 +26,15 @@
             <div class="space"></div>
 
             <!-- Toggle -->
-            <row>
+            <!--<row>-->
                 <input type="checkbox" class="toggle" id="heating">
                 <label for="heating" class="heating" data-checked="ON" data-unchecked="OFF"></label>
-            </row>
+            <!--</row>-->
 
-            <row>
-                <input type="checkbox" class="toggle" id="time">
+            <!--<row>-->
+                <input type="checkbox" class="toggle" id="time" v-model="TimeHome">
                 <label for="time" class="time" data-checked="30min" data-unchecked="60min"></label>
-            </row>
+            <!--</row>-->
 
             <div class="space"></div>
 
@@ -48,33 +48,33 @@
 
             <!-- bottom-details -->
             <div class="bottom-details">
-                <div class="column windP" ;>
+                <div class="column windP" >
                     <img src="icons\temperature.jpg" />
                     <div class="details">
-                        <span id="temp" class="number"></span>
+                        <span id="temp" class="number">{{Temperature}}</span>
                         <span>°C</span>
                     </div>
                 </div>
 
-                <div class="column humidityP" ;>
+                <div class="column humidityP" >
                     <img src="icons\humidity.png" />
                     <div class="details">
-                        <span id="humid"></span>
+                        <span id="humid">{{Humidity}}</span>
                         <p>%</p>
                     </div>
                 </div>
 
-                <div class="column heating" ;>
+                <div class="column heating" >
                     <img src="icons\heating.jpg" />
                     <div class="details">
-                        <span>L 1</span>
+                        <span>L {{Level}}</span>
                         <p>Heat</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src=https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js></script>
     <script src="js/room.js"></script>
