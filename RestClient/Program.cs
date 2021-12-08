@@ -35,16 +35,16 @@ namespace RestClient
         public async static void ReceiveLoop(Worker worker)
         {
             int command = worker.GetCommand().Result;
-
-            //Resetting the command to 0
-
-            await worker.PostCommand(new Command() {integer = -1 });
+            int heatingLevel = worker.GetHeatingLevel().Result;
+            
+            //Resetting the command to -1
+            await worker.PostCommand(new Command() { integer = -1 });
 
             //Sending to Pi
-            if (command >= 0 && command <= 6)
+            if (command >= 0 && command <= 2)
             {
-                Console.WriteLine($"Sending {command} to Pi");
-                SendMessage(command.ToString());
+                Console.WriteLine($"Sending {command} and {heatingLevel} to Pi");
+                SendMessage(command.ToString() + " " + heatingLevel.ToString());
             }
         }
     }

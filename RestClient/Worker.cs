@@ -22,6 +22,19 @@ namespace RestClient
                 return _command;
             }
         }
+
+        public async Task<int> GetHeatingLevel()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await
+                    client.GetAsync("https://titanicweatherapi.azurewebsites.net/api/Titanic/HeatingLevel");
+                int _heatingLevel = await
+                    response.Content.ReadFromJsonAsync<int>();
+                return _heatingLevel;
+            }
+        }
+
         public async Task PostCommand(Command _command)
         {
             using (HttpClient client = new HttpClient())
