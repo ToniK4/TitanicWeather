@@ -57,6 +57,12 @@ namespace TitanicWeather.Controllers
         {
             return _localManager.GetHeatingLevel();
         }
+        // GET: api/Titanic/SummarizedData
+        [HttpGet("SummarizedData")]
+        public IEnumerable<SummarizedData> GetSummarizedData()
+        {
+            return _manager.GetSummarizedData();
+        }
 
         // POST api/Titanic/SetCommand
         [HttpPost("SetCommand")]

@@ -43,6 +43,41 @@ namespace TitanicWeather.Managers
             }
             return meas;
         }
+        public SummarizedData SummarizeDataForTheDay(IEnumerable<Measurement> dayMeasures,DateTime dt)
+        {
+
+            
+            SummarizedData res = new SummarizedData()
+            {
+                Date = dt,
+                MaxTemp = dayMeasures.FirstOrDefault().Temperature.Value,
+                MinTemp = dayMeasures.FirstOrDefault().Temperature.Value,
+                MaxHumid = dayMeasures.FirstOrDefault().Humidity.Value,
+                MinHumid = dayMeasures.FirstOrDefault().Humidity.Value
+            };
+            
+            foreach (Measurement measurement in dayMeasures)
+            {
+                if (measurement.Temperature.Value > res.MaxTemp) res.MaxTemp = measurement.Temperature.Value;
+                if (measurement.Temperature.Value < res.MinTemp) res.MinTemp = measurement.Temperature.Value;
+                if (measurement.Humidity.Value > res.MaxHumid) res.MaxHumid = measurement.Humidity.Value;
+                if (measurement.Humidity.Value < res.MinHumid) res.MinHumid = measurement.Humidity.Value;
+            }
+
+            return res;
+        }
+        public IEnumerable<SummarizedData> GetSummarizedData()
+        {
+            IEnumerable<Measurement> data = _context.Measurements;
+            DateTime currentDate;
+            List<SummarizedData> res = new List<SummarizedData>();
+            for (int i = 6; i > 0; i--)
+            {
+                currentDate = DateTime.Now.Date.AddDays(-i);
+                res.Add(SummarizeDataForTheDay(data.Where(x=>x.DateAndTime.Date==currentDate),currentDate));
+            }
+            return res;
+        }
 
     }
 }

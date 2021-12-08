@@ -1,55 +1,103 @@
-const tempPi = document.getElementById('TempChartPi').getContext('2d');
-const TempChartPi = new Chart(tempPi, {
-    type: 'line',
-    data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sta', 'Sun'],
-        datasets: [{
-            label: 'Temperature °C',
-            data: [5, 2, 5, 3, 2, 6, 1],
-            backgroundColor: "transparent",
-            borderColor: "#ee6666",
-            borderWidth: 3
-        }
-    ]
-    },
-    options: {
-        elements:{
-            line:{
-                tension:0.5
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    },
-});
+function GetData() {
+    axios({
+        method: 'get',
+        url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/SummarizedData'
+    })
+        .then(res => DrawCharts(res.data))
+        .catch(err => console.log(err));
+}
+function Dates(startDate, daysToAdd) {
+    var aryDates = [];
 
-const humi = document.getElementById('HumiChart').getContext('2d');
-const humiChart = new Chart(humi, {
-    type: 'line',
-    data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sta', 'Sun'],
-        datasets: [{
-            label: 'Humidity %',
-            data: [89, 84, 75, 82, 92, 88,85],
-            backgroundColor: "transparent",
-            borderColor: "#73c0de",
-            borderWidth: 3
+    for (var i = 0; i <= daysToAdd; i++) {
+        var currentDate = new Date();
+        currentDate.setDate(startDate.getDate() + i);
+        aryDates.push(currentDate.getDate() + "/" + (currentDate.getMonth() + 1));
+    }
+
+    return aryDates;
+}
+
+function DrawCharts(res) {
+    const labels = Dates(new Date(),6)
+    let MaxTemp=[];
+    let MinTemp=[];
+    let MaxHum=[];
+    let MinHum=[];
+    res.forEach(element => {
+        MaxTemp.push(element.MaxTemp);
+        MinTemp.push(element.MinTemp);
+        MaxHum.push(element.MaxHumid);
+        MinHum.push(element.MinHumid);
+    });
+    const tempPi = document.getElementById('TempChartPi').getContext('2d');
+    const TempChartPi = new Chart(tempPi, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'High Temperature °C',
+                data: MaxTemp,
+                backgroundColor: "transparent",
+                borderColor: "#ee6666",
+                borderWidth: 3
+            },
+
+            {
+                label: 'Low Temperature °C',
+                data: MinTemp,
+                backgroundColor: "transparent",
+                borderColor: "#ea7ccc",
+                borderWidth: 3
+            }
+            ]
         },
-    ]
-    },
-    options: {
-        elements:{
-            line:{
-                tension:0.5
+        options: {
+            elements: {
+                line: {
+                    tension: 0.5
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
         },
-        scales: {
-            y: {
-                beginAtZero: false
+    });
+
+    const humi = document.getElementById('HumiChart').getContext('2d');
+    const humiChart = new Chart(humi, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'High Humidity %',
+                data: MaxHum,
+                backgroundColor: "transparent",
+                borderColor: "#73c0de",
+                borderWidth: 3
+            },
+            {
+                label: 'LowHumidity %',
+                data: MinHum,
+                backgroundColor: "transparent",
+                borderColor: "#3ca7d1",
+                borderWidth: 3
+            }
+            ]
+        },
+        options: {
+            elements: {
+                line: {
+                    tension: 0.5
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
             }
         }
-    }
-});
+    });
+};

@@ -35,7 +35,7 @@ function Forecast(res) {
                 label: 'High Temperature °C',
                 data: ForcTempMax,
                 backgroundColor: "transparent",
-                borderColor: "#ea7ccc",
+                borderColor: "#ee6666",
                 borderWidth: 3
             },
 
@@ -43,7 +43,7 @@ function Forecast(res) {
                 label: 'Low Temperature °C',
                 data: ForcTempMin,
                 backgroundColor: "transparent",
-                borderColor: "#ee6666",
+                borderColor: "#ea7ccc",
                 borderWidth: 3
             },
             ]
