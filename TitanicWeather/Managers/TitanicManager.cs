@@ -9,7 +9,7 @@ namespace TitanicWeather.Managers
     {
         private static int _command = -1;
         private static int _heatingLevel = 0;
-
+        private static string _piIcon = "";
         public void SetCommand(int com)
         {
             _command = com;
@@ -18,7 +18,10 @@ namespace TitanicWeather.Managers
         {
             _heatingLevel = heat;
         }
-
+        public void SetPiIcon(string piIcon)
+        {
+            _piIcon = piIcon;
+        }
         public int GetCommand()
         {
             return _command;
@@ -28,6 +31,11 @@ namespace TitanicWeather.Managers
         {
             return _heatingLevel;
         }
+        public string GetPiIcon()
+        {
+            return _piIcon;
+        }
+        
 
     }
 }
