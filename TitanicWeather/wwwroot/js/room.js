@@ -72,10 +72,11 @@ function TurnOnOff() {
         PostHeatingLevel();
         PostCommand(1);
         console.log("on")
+        document.getElementById("time").disabled = false;
     }
     else {
         PostCommand(0);
-
+        document.getElementById("time").disabled = true;
         console.log("off")
     }
 }

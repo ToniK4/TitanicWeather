@@ -3,7 +3,7 @@ function GetData() {
         method: 'get',
         url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/SummarizedData'
     })
-        .then(res => { console.log(res.data); DrawCharts(res.data); })
+        .then(res => {DrawCharts(res.data); })
         .catch(err => console.log(err));
 }
 function Dates(startDate, daysToAdd) {
@@ -31,8 +31,6 @@ function DrawCharts(res) {
         MaxHum.push(element.maxHumid);
         MinHum.push(element.minHumid);
     });
-    console.log(MaxTemp);
-    console.log(MinTemp);
     const tempPi = document.getElementById('TempChartPi').getContext('2d');
     const TempChartPi = new Chart(tempPi, {
         type: 'line',
