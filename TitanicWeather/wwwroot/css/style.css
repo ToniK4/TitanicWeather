@@ -289,4 +289,14 @@ input[type=checkbox].toggle {
         color: white;
     }
 
+    input[type=checkbox].toggle:checked + label.time :enabled {
+        text-align: left;
+        background-color: #ee6666;
+    }
+
+    input[type=checkbox].toggle:not(checked) + label.time :disabled {
+        text-align: left;
+        background-color: grey;
+    }
+
 /* unlock page */
