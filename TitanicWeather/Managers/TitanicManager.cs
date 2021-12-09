@@ -31,6 +31,10 @@ namespace TitanicWeather.Managers
         {
             return _heatingLevel;
         }
+        public string GetPiIcon()
+        {
+            return _piIcon;
+        }
         
 
     }
