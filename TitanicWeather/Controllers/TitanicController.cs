@@ -77,5 +77,12 @@ namespace TitanicWeather.Controllers
         {
             _localManager.SetHeatingLevel(heatingLevel.integer);
         }
+
+        // POST api/Titanic/SetHeatingLevel
+        [HttpPost("SetPiIcon")]
+        public void PostPiIcon([FromBody] PiIcon piIcon)
+        {
+            _localManager.SetPiIcon(piIcon.iconName);
+        }
     }
 }
