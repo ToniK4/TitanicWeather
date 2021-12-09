@@ -41,15 +41,11 @@ namespace TitanicUDPServer
                     Humidity = Math.Round(decimal.Parse(measArray[1], CultureInfo.InvariantCulture), 1),
                     Pressure = Math.Round(decimal.Parse(measArray[2], CultureInfo.InvariantCulture), 1)
                 };
-                //AddMeasurementToDB(newMeasure);
+                AddMeasurementToDB(newMeasure);
                 PostHeatingLevel(_worker, int.Parse(measArray[3]));
-
-                dataString = "Data received: " + dataString;
-                byte[] toBeSent = Encoding.UTF8.GetBytes(dataString);
-                //echo back data
-                socket.Send(toBeSent, toBeSent.Length, from);
             }
         }
+
         public static void AddMeasurementToDB(Measurement measurement)
         {
             managerDB.Add(measurement);

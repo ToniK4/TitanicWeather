@@ -20,7 +20,7 @@ namespace RestClient
             while (true)
             {
                 ReceiveLoop(_worker);
-                Thread.Sleep(10000);
+                Thread.Sleep(5000);
             }
         }
 
