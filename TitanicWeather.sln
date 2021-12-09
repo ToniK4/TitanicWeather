@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicWeather", "TitanicWe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicUDPServer", "TitanicUDPServer\TitanicUDPServer.csproj", "{C6F856CF-AB2D-4D06-9547-DA42E02496D1}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "TitanicVUE", "TitanicVUE\TitanicVUE.njsproj", "{81199048-1D45-44E6-BC4D-254875DB3E14}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicWeatherTests", "TitanicWeatherTests\TitanicWeatherTests.csproj", "{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestClient", "RestClient\RestClient.csproj", "{FB0F32C9-92BB-46A8-83AB-41BB814DB7BB}"
@@ -27,10 +25,6 @@ Global
 		{C6F856CF-AB2D-4D06-9547-DA42E02496D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6F856CF-AB2D-4D06-9547-DA42E02496D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6F856CF-AB2D-4D06-9547-DA42E02496D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81199048-1D45-44E6-BC4D-254875DB3E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81199048-1D45-44E6-BC4D-254875DB3E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81199048-1D45-44E6-BC4D-254875DB3E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81199048-1D45-44E6-BC4D-254875DB3E14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F14DB9-C5EA-468E-B250-0D0B4B95B676}.Release|Any CPU.ActiveCfg = Release|Any CPU
