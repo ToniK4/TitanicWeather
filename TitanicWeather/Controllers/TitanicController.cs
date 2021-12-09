@@ -57,11 +57,19 @@ namespace TitanicWeather.Controllers
         {
             return _localManager.GetHeatingLevel();
         }
+
         // GET: api/Titanic/SummarizedData
         [HttpGet("SummarizedData")]
         public IEnumerable<SummarizedData> GetSummarizedData()
         {
             return _manager.GetSummarizedData();
+        }
+        
+        // GET: api/Titanic/PiIcon
+        [HttpGet("PiIcon")]
+        public string GetPiIcon()
+        {
+            return _localManager.GetPiIcon();
         }
 
         // POST api/Titanic/SetCommand
@@ -78,7 +86,7 @@ namespace TitanicWeather.Controllers
             _localManager.SetHeatingLevel(heatingLevel.integer);
         }
 
-        // POST api/Titanic/SetHeatingLevel
+        // POST api/Titanic/SetPiIcon
         [HttpPost("SetPiIcon")]
         public void PostPiIcon([FromBody] PiIcon piIcon)
         {

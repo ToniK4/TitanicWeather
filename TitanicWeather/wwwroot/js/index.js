@@ -22,7 +22,7 @@ function Forecast(res) {
     document.getElementById('pic').src = str.replace(/"/g, "");
     axios({
         method: 'post',
-        url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/PiIcon',
+        url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/SetPiIcon',
         data: { iconName: res.data.next_1_hours.summary.symbol_code.replace(/"/g, "") },
         headers: { contentType: "application/json; charset=utf-8" }
     })
