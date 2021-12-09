@@ -12,7 +12,7 @@ function Dates(startDate, daysToAdd) {
     for (var i = 0; i <= daysToAdd; i++) {
         var currentDate = new Date();
         currentDate.setDate(startDate.getDate() + i);
-        aryDates.push(currentDate.getDate() + "/"+ (currentDate.getMonth()+1));
+        aryDates.push(currentDate.getDate() + "/" + (currentDate.getMonth() + 1));
     }
 
     return aryDates;
@@ -24,7 +24,7 @@ function Forecast(res) {
     const ForcTempMax = [ForcData[0].air_temperature_percentile_90, ForcData[1].air_temperature_percentile_90, ForcData[2].air_temperature_percentile_90, ForcData[3].air_temperature_percentile_90, ForcData[4].air_temperature_percentile_90, ForcData[5].air_temperature_percentile_90, ForcData[6].air_temperature_percentile_90]
     const ForcHumid = [ForcData[0].relative_humidity, ForcData[1].relative_humidity, ForcData[2].relative_humidity, ForcData[3].relative_humidity, ForcData[4].relative_humidity, ForcData[5].relative_humidity, ForcData[6].relative_humidity]
     const ForcWindS = [ForcData[0].wind_speed, ForcData[1].wind_speed, ForcData[2].wind_speed, ForcData[3].wind_speed, ForcData[4].wind_speed, ForcData[5].wind_speed, ForcData[6].wind_speed]
-    const labels = Dates(new Date(),6)
+    const labels = Dates(new Date(), 6)
 
     const temp = document.getElementById('TempChart').getContext('2d');
     const TempChart = new Chart(temp, {

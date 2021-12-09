@@ -29,8 +29,8 @@ function PostCommand(command) {
         document.getElementById("loading").innerHTML = ``;
         getHeatLevel();
         getRoomTemp();
-    },6500)
-    
+    }, 6500)
+
 
 }
 function ShowRoomTemp(res) {
@@ -48,11 +48,11 @@ function PostHeatingLevel(lev = vm.calcLevel) {
     axios({
         method: 'post',
         url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/SetHeatingLevel',
-        data: { integer:lev },
+        data: { integer: lev },
         headers: { contentType: "application/json; charset=utf-8" }
     })
         .then(function (response) {
-        console.log(response);
+            console.log(response);
         })
         .catch(function (error) {
             console.log(error);
@@ -60,8 +60,8 @@ function PostHeatingLevel(lev = vm.calcLevel) {
 }
 function getHeatLevel() {
     axios({
-        method:'get',
-        url:'https://titanicweatherapi.azurewebsites.net/api/Titanic/HeatingLevel'
+        method: 'get',
+        url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/HeatingLevel'
     })
         .then(res => vm.Level = res.data)
         .catch(err => console.log(err))
@@ -98,7 +98,7 @@ var vm = new Vue({
     },
     computed: {
         calcLevel() {
-            
+
             if (this.Temperature >= 24) {
                 return 0
             }
@@ -108,7 +108,7 @@ var vm = new Vue({
             let result = 0;
             let tempDiff = 24 - this.Temperature;
             if (tempDiff < 5 && tempDiff > 0) {
-                result=1
+                result = 1
             }
             if (tempDiff < 10 && tempDiff > 5) {
                 result = 2
