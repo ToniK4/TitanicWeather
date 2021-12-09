@@ -3,15 +3,15 @@ function GetData() {
         method: 'get',
         url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/SummarizedData'
     })
-        .then(res => DrawCharts(res.data))
+        .then(res => { console.log(res.data);DrawCharts(res.data); })
         .catch(err => console.log(err));
 }
 function Dates(startDate, daysToAdd) {
     var aryDates = [];
 
-    for (var i = 0; i <= daysToAdd; i++) {
+    for (var i = daysToAdd; i >=0 ; i--) {
         var currentDate = new Date();
-        currentDate.setDate(startDate.getDate() + i);
+        currentDate.setDate(startDate.getDate() - i);
         aryDates.push(currentDate.getDate() + "/" + (currentDate.getMonth() + 1));
     }
 
@@ -23,13 +23,16 @@ function DrawCharts(res) {
     let MaxTemp=[];
     let MinTemp=[];
     let MaxHum=[];
-    let MinHum=[];
+    let MinHum = [];
+    
     res.forEach(element => {
-        MaxTemp.push(element.MaxTemp);
-        MinTemp.push(element.MinTemp);
-        MaxHum.push(element.MaxHumid);
-        MinHum.push(element.MinHumid);
+        MaxTemp.push(element.maxTemp);
+        MinTemp.push(element.minTemp);
+        MaxHum.push(element.maxHumid);
+        MinHum.push(element.minHumid);
     });
+    console.log(MaxTemp);
+    console.log(MinTemp);
     const tempPi = document.getElementById('TempChartPi').getContext('2d');
     const TempChartPi = new Chart(tempPi, {
         type: 'line',
@@ -101,3 +104,5 @@ function DrawCharts(res) {
         }
     });
 };
+
+GetData();
