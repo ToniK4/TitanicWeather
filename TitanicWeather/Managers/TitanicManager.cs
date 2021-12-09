@@ -22,6 +22,7 @@ namespace TitanicWeather.Managers
         {
             _piIcon = piIcon;
         }
+
         public int GetCommand()
         {
             return _command;
@@ -34,8 +35,6 @@ namespace TitanicWeather.Managers
         public string GetPiIcon()
         {
             return _piIcon;
-        }
-        
-
+        }      
     }
 }
