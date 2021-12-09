@@ -19,7 +19,20 @@ function Forecast(res) {
   ${JSON.stringify(res.data.instant.details.relative_humidity)}
   `;
   str=`icons\\properIcons\\png\\${JSON.stringify(res.data.next_1_hours.summary.symbol_code)}.png`;
-  document.getElementById('pic').src = str.replace(/"/g,"");
+    document.getElementById('pic').src = str.replace(/"/g, "");
+    axios({
+        method: 'post',
+        url: 'https://titanicweatherapi.azurewebsites.net/api/Titanic/PiIcon',
+        data: { iconName: res.data.next_1_hours.summary.symbol_code.replace(/"/g, "") },
+        headers: { contentType: "application/json; charset=utf-8" }
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    
   }
   
 

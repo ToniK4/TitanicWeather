@@ -20,11 +20,13 @@ function PostCommand(command) {
         .catch(function (error) {
             console.log(error);
         });
+    document.getElementById("loading").innerHTML = "Loading, don't push more buttons";
     document.getElementById("heating").disabled = true;
     document.getElementById("getdata").disabled = true;
     setTimeout(() => {
         document.getElementById("heating").disabled = false;
         document.getElementById("getdata").disabled = false;
+        document.getElementById("loading").innerHTML = ``;
         getHeatLevel();
         getRoomTemp();
     },6500)
