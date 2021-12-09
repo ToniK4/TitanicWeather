@@ -1,3 +1,12 @@
+//const toggleHeating = document.getElementById('heating');
+//const toggleTime = document.getElementById('time');
+
+//function changeStatusOfToggleTime() {
+//    if (toggleHeating.disabled == true) {
+//        toggleTime.disabled = true;
+//    }
+//}
+
 function getRoomTemp() {
     axios({
         method: 'get',
@@ -79,6 +88,10 @@ function TurnOnOff() {
         document.getElementById("time").disabled = true;
         console.log("off")
     }
+
+    //if (toggleHeating.disabled == true) {
+    //    toggleTime.disabled = true;
+    //}
 }
 function GetNewData() {
     PostCommand(2);
