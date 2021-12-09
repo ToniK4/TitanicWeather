@@ -35,6 +35,18 @@ namespace RestClient
             }
         }
 
+        public async Task<string> GetIconName()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await
+                    client.GetAsync("https://titanicweatherapi.azurewebsites.net/api/Titanic/PiIcon");
+                string iconName = await
+                    response.Content.ReadAsStringAsync();
+                return iconName;
+            }
+        }
+
         public async Task PostCommand(Command _command)
         {
             using (HttpClient client = new HttpClient())

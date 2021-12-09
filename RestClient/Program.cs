@@ -10,6 +10,8 @@ namespace RestClient
 {
     public class Program
     {
+        private static string _msg  { get; set; }
+
         static void Main(string[] args)
         {
             //Initialization
@@ -19,19 +21,20 @@ namespace RestClient
             //Receive loop
             while (true)
             {
-                ReceiveLoop(_worker);
+                Task.Run(() => ReceiveLoop(_worker));
+                Task.Run(() => ReceiveIcon(_worker));
                 Thread.Sleep(5000);
             }
         }
 
-        public static void SendMessage(string message)
+        public static void SendMessage(string message, int port)
         {
             //send data to the server
             byte[] data = Encoding.UTF8.GetBytes(message);
             UdpClient socket = new UdpClient();
-            socket.Send(data, data.Length, "255.255.255.255", 5005);
-
+            socket.Send(data, data.Length, "255.255.255.255", port);
         }
+
         public async static void ReceiveLoop(Worker worker)
         {
             int command = worker.GetCommand().Result;
@@ -44,8 +47,71 @@ namespace RestClient
             if (command >= 0 && command <= 2)
             {
                 Console.WriteLine($"Sending {command} and {heatingLevel} to Pi");
-                SendMessage(command.ToString() + " " + heatingLevel.ToString());
+                SendMessage(command.ToString() + " " + heatingLevel.ToString(), 5005);
             }
         }
+        
+        public async static void ReceiveIcon(Worker worker)
+        {
+            string iconName = worker.GetIconName().Result;
+
+            //Sending to Pi
+            if (iconName != _msg)
+            {
+                Console.WriteLine($"Sending {iconName} to Pi");
+                _msg = iconName;
+                SendMessage(IconCheck(iconName), 5006);
+            }
+        }
+        public static string IconCheck(string iconName)
+        {
+            string msg = "";
+
+            if (iconName.Contains("clear") || iconName.Contains("fair"))
+            {
+                msg = "sun";
+            }
+
+            if (iconName.Contains("cloudy"))
+            {
+                msg = "cloudy";
+            }
+
+            if (iconName.Contains("fog"))
+            {
+                msg = "fog";
+            }
+
+            if (iconName.Contains("sleet"))
+            {
+                msg= "sleet";
+            }
+
+            if (iconName.Contains("rain"))
+            {
+                if (iconName.Contains("thunder"))
+                {
+                    msg = "storm";
+                }
+                else
+                {
+                    msg = "rain";
+                }
+            }
+            
+            if (iconName.Contains("snow"))
+            {
+                if (iconName.Contains("thunder"))
+                {
+                    msg = "snowstorm";
+                }
+                else
+                {
+                    msg = "snow";
+                }
+            }
+            return msg;
+        }
+        
     }
 }
