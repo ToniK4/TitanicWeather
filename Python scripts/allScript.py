@@ -15,13 +15,11 @@ def function(heatingLevel):
         msgFromClient = str(temp) + "," + str(humid) + "," + str(pres) + "," +  str(heatingLevel)
         bytesToSend = str.encode(msgFromClient)
 
-        #Change the IPAddress to your own
-        IPAddress = "0.0.0.0"
-        serverAddressPort = (IPAddress, 65000)
+        #Broadcast
+        serverAddressPort = ("255.255.255.255", 65000)
 
         UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-
+        UDPClientSocket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         UDPClientSocket.sendto(bytesToSend, serverAddressPort)
 
         print("Data sent")
-
