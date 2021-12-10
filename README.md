@@ -5,6 +5,7 @@ Our idea was to make a weather application with a Raspberry Pi. The main idea is
 
 API method links:
 Our weather API is published at this web address: https://titanicweatherapi.azurewebsites.net/
+
 GET
 https://titanicweatherapi.azurewebsites.net/api/Titanic/All
 https://titanicweatherapi.azurewebsites.net/api/Titanic/Recent
