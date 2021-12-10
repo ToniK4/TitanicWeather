@@ -4,15 +4,23 @@ This is a semester project we made in the 3rd semester of computer science in ze
 Our idea was to make a weather application with a Raspberry Pi. The main idea is that we measure data on the pi and send this to a web application using a rest-service.
 
 API method links:
+
 Our weather API is published at this web address: https://titanicweatherapi.azurewebsites.net/
 
 GET
+
 https://titanicweatherapi.azurewebsites.net/api/Titanic/All
+
 https://titanicweatherapi.azurewebsites.net/api/Titanic/Recent
+
 https://titanicweatherapi.azurewebsites.net/api/Titanic/Command
+
 https://titanicweatherapi.azurewebsites.net/api/Titanic/HeatingLevel
+
 https://titanicweatherapi.azurewebsites.net/api/Titanic/SummarizedData
+
 https://titanicweatherapi.azurewebsites.net/api/Titanic/PiIcon
+
 
 POST
 https://titanicweatherapi.azurewebsites.net/api/Titanic/SetCommand
