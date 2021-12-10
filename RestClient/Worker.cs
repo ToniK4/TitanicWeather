@@ -9,6 +9,9 @@ using TitanicWeather.Models;
 
 namespace RestClient
 {
+    /// <summary>
+    /// Class with get and post methods for the Rest API
+    /// </summary>
     public class Worker
     {
         public async Task<int> GetCommand()

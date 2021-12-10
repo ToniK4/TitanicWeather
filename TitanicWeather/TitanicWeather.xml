@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TitanicWeather</name>
+    </assembly>
+    <members>
+        <member name="T:TitanicWeather.Managers.TitanicManager">
+            <summary>
+            Class with methods used in the Rest API.
+            </summary>
+        </member>
+        <member name="M:TitanicWeather.Managers.TitanicManagerDB.SummarizeDataForTheDay(System.Collections.Generic.IEnumerable{TitanicWeather.Models.Measurement},System.DateTime)">
+            <summary>
+            Sumarises a lot of measurements  and returns summarised data in another object
+            It is assumed that all of the measurements would be of the same day
+            </summary>
+            <param name="dayMeasures">list of measurements that need to be summarised</param>
+            <param name="dt">date of the measurements(to ensure that even if list is empty the data is still processed)</param>
+            <returns>returns object that contains min and max temperatuure and humidity in given list</returns>
+        </member>
+        <member name="M:TitanicWeather.Managers.TitanicManagerDB.GetSummarizedData">
+            <summary>
+            Method gets data from database and through foreach loop runs it throuhg another method to summarise data for the day
+            
+            </summary>
+            <returns>returns a Ienumerable off summarised data for last 7 days(including today) in chronological order</returns>
+        </member>
+        <member name="T:TitanicWeather.Models.SummarizedData">
+            <summary>
+            Model for summarizing data for the day.
+            </summary>
+        </member>
+    </members>
+</doc>

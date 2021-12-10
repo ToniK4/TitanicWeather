@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 namespace TitanicWeather.Managers
 {
+    /// <summary>
+    /// Class with methods used in the Rest API.
+    /// </summary>
     public class TitanicManager
     {
         private static int _command = -1;
         private static int _heatingLevel = 0;
         private static string _piIcon = "";
+
         public void SetCommand(int com)
         {
             _command = com;

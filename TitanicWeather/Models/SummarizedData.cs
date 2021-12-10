@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace TitanicWeather.Models
 {
     /// <summary>
-    /// Model for summarising data for the day
+    /// Model for summarizing data for the day.
     /// </summary>
     public class SummarizedData
     {

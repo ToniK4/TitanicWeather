@@ -27,6 +27,11 @@ namespace RestClient
             }
         }
 
+        /// <summary>
+        /// UDP broadcaster.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="port"></param>
         public static void SendMessage(string message, int port)
         {
             //send data to the server
@@ -35,6 +40,10 @@ namespace RestClient
             socket.Send(data, data.Length, "255.255.255.255", port);
         }
 
+        /// <summary>
+        /// Getting command from Rest API, resetting it and sending to Pi.
+        /// </summary>
+        /// <param name="worker"></param>
         public async static void ReceiveLoop(Worker worker)
         {
             int command = worker.GetCommand().Result;
@@ -50,7 +59,10 @@ namespace RestClient
                 SendMessage(command.ToString() + " " + heatingLevel.ToString(), 5005);
             }
         }
-        
+        /// <summary>
+        /// Checks if the received icon is different from the one stored in the static instance field.
+        /// </summary>
+        /// <param name="worker"></param>
         public async static void ReceiveIcon(Worker worker)
         {
             string iconName = worker.GetIconName().Result;
@@ -63,6 +75,11 @@ namespace RestClient
                 SendMessage(IconCheck(iconName), 5006);
             }
         }
+        /// <summary>
+        /// Checks the name of string parameter and changes it to be compatible with Pi scripts.
+        /// </summary>
+        /// <param name="iconName"></param>
+        /// <returns></returns>
         public static string IconCheck(string iconName)
         {
             string msg = "Something went wrong buddy";

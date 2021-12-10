@@ -50,6 +50,12 @@ namespace TitanicUDPServer
         {
             managerDB.Add(measurement);
         }
+
+        /// <summary>
+        /// Calls the worker's post method if the Pi didn't send a signal not to.
+        /// </summary>
+        /// <param name="worker"></param>
+        /// <param name="_integer"></param>
         public static void PostHeatingLevel(Worker worker, int _integer)
         {
             //-1 is the case if we run the script in Pi manually, so we don't want to update the heating level 
