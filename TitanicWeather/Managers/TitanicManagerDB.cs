@@ -43,6 +43,13 @@ namespace TitanicWeather.Managers
             }
             return meas;
         }
+        /// <summary>
+        /// Sumarises a lot of measurements  and returns summarised data in another object
+        /// It is assumed that all of the measurements would be of the same day
+        /// </summary>
+        /// <param name="dayMeasures">list of measurements that need to be summarised</param>
+        /// <param name="dt">date of the measurements(to ensure that even if list is empty the data is still processed)</param>
+        /// <returns>returns object that contains min and max temperatuure and humidity in given list</returns>
         public SummarizedData SummarizeDataForTheDay(IEnumerable<Measurement> dayMeasures,DateTime dt)
         {
             SummarizedData res;
@@ -73,6 +80,11 @@ namespace TitanicWeather.Managers
 
             return res;
         }
+        /// <summary>
+        /// Method gets data from database and through foreach loop runs it throuhg another method to summarise data for the day
+        /// 
+        /// </summary>
+        /// <returns>returns a Ienumerable off summarised data for last 7 days(including today) in chronological order</returns>
         public IEnumerable<SummarizedData> GetSummarizedData()
         {
             IEnumerable<Measurement> data = _context.Measurements;
