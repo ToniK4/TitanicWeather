@@ -7,6 +7,9 @@ using TitanicWeather.TitanicContext;
 
 namespace TitanicWeather.Managers
 {
+    /// <summary>
+    /// Manager class that interacts with the database.
+    /// </summary>
     public class TitanicManagerDB
     {
         private TitanicdatabaseContext _context = new TitanicdatabaseContext();
