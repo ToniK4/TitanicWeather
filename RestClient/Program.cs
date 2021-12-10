@@ -65,7 +65,7 @@ namespace RestClient
         }
         public static string IconCheck(string iconName)
         {
-            string msg = "";
+            string msg = "Something went wrong buddy";
 
             if (iconName.Contains("clear") || iconName.Contains("fair"))
             {
