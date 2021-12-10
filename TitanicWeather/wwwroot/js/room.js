@@ -82,11 +82,11 @@ function TurnOnOff() {
         PostCommand(1);
         console.log("on")
         //document.getElementById("time").backgroundColor ="#ee6666"
-        document.getElementById("time").disabled = false;
+        //document.getElementById("time").disabled = false;
     }
     else {
         PostCommand(0);
-        document.getElementById("time").disabled = true;
+        //document.getElementById("time").disabled = true;
         //document.getElementById("time").backgroundColor = "grey"
         console.log("off")
     }
