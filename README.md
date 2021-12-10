@@ -1,4 +1,9 @@
 # TitanicWeather
+## Important:
+In order to build the solution a Secrets.cs file has to be added in the TitanicWeather project.
+
+The file contains the connection string to the database. That's why it's not in the GitHub repository.
+
 ## Description:
 This is a semester project we made in the 3rd semester of computer science in zealand.
 Our idea was to make a weather application with a Raspberry Pi. The main idea is that we measure data on the pi and send this to a web application using a rest-service.
