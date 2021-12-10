@@ -18,29 +18,29 @@ namespace TitanicWeather.Managers.Tests
         public static TitanicManagerDB manager = new TitanicManagerDB();
         public static List<Measurement> testDataFull = new List<Measurement>()
         {
-            new Measurement(){Id=0,DateAndTime= new DateTime(2021,12,2), Temperature=(decimal)1.0, Humidity = 10, Pressure=1},
-            new Measurement(){Id=1,DateAndTime= new DateTime(2021,12,3), Temperature=(decimal)1.5, Humidity = 20, Pressure=1},
-            new Measurement(){Id=2,DateAndTime= new DateTime(2021,12,4), Temperature=(decimal)2.0, Humidity = 30, Pressure=1},
-            new Measurement(){Id=3,DateAndTime= new DateTime(2021,12,5), Temperature=(decimal)3.5, Humidity = 40, Pressure=1},
-            new Measurement(){Id=4,DateAndTime= new DateTime(2021,12,6), Temperature=(decimal)4.0, Humidity = 50, Pressure=1},
-            new Measurement(){Id=5,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)3.2, Humidity = 55, Pressure=1},
-            new Measurement(){Id=6,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)1.0, Humidity = 80, Pressure=1},
-            new Measurement(){Id=7,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)1.2, Humidity = 54, Pressure=1},
-            new Measurement(){Id=8,DateAndTime= new DateTime(2021,12,8), Temperature=(decimal)6.0, Humidity = 60, Pressure=1},
-            new Measurement(){Id=9,DateAndTime= new DateTime(2021,12,9), Temperature=(decimal)3.4, Humidity = 70, Pressure=1}
+            new Measurement(){Id=0,DateAndTime= DateTime.Now.Date.AddDays(-7), Temperature=(decimal)1.0, Humidity = 10, Pressure=1},
+            new Measurement(){Id=1,DateAndTime= DateTime.Now.Date.AddDays(-6), Temperature=(decimal)1.5, Humidity = 20, Pressure=1},
+            new Measurement(){Id=2,DateAndTime= DateTime.Now.Date.AddDays(-5), Temperature=(decimal)2.0, Humidity = 30, Pressure=1},
+            new Measurement(){Id=3,DateAndTime= DateTime.Now.Date.AddDays(-4), Temperature=(decimal)3.5, Humidity = 40, Pressure=1},
+            new Measurement(){Id=4,DateAndTime= DateTime.Now.Date.AddDays(-3), Temperature=(decimal)4.0, Humidity = 50, Pressure=1},
+            new Measurement(){Id=5,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)3.2, Humidity = 55, Pressure=1},
+            new Measurement(){Id=6,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)1.0, Humidity = 80, Pressure=1},
+            new Measurement(){Id=7,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)1.2, Humidity = 54, Pressure=1},
+            new Measurement(){Id=8,DateAndTime= DateTime.Now.Date.AddDays(-1), Temperature=(decimal)6.0, Humidity = 60, Pressure=1},
+            new Measurement(){Id=9,DateAndTime= DateTime.Now.Date.AddDays(0), Temperature=(decimal)3.4, Humidity = 70, Pressure=1}
         };
         public static List<Measurement> testDataHoles = new List<Measurement>()
         {
-            new Measurement(){Id=0,DateAndTime= new DateTime(2021,12,2), Temperature=(decimal)1.0, Humidity = 10, Pressure=1},
-            new Measurement(){Id=1,DateAndTime= new DateTime(2021,12,2), Temperature=(decimal)1.5, Humidity = 20, Pressure=1},
-            new Measurement(){Id=2,DateAndTime= new DateTime(2021,12,5), Temperature=(decimal)2.0, Humidity = 30, Pressure=1},
-            new Measurement(){Id=3,DateAndTime= new DateTime(2021,12,5), Temperature=(decimal)3.5, Humidity = 40, Pressure=1},
-            new Measurement(){Id=4,DateAndTime= new DateTime(2021,12,5), Temperature=(decimal)4.0, Humidity = 50, Pressure=1},
-            new Measurement(){Id=5,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)3.2, Humidity = 55, Pressure=1},
-            new Measurement(){Id=6,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)1.0, Humidity = 80, Pressure=1},
-            new Measurement(){Id=7,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)1.2, Humidity = 54, Pressure=1},
-            new Measurement(){Id=8,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)6.0, Humidity = 60, Pressure=1},
-            new Measurement(){Id=9,DateAndTime= new DateTime(2021,12,7), Temperature=(decimal)3.4, Humidity = 70, Pressure=1}
+            new Measurement(){Id=0,DateAndTime= DateTime.Now.Date.AddDays(-7), Temperature=(decimal)1.0, Humidity = 10, Pressure=1},
+            new Measurement(){Id=1,DateAndTime= DateTime.Now.Date.AddDays(-7), Temperature=(decimal)1.5, Humidity = 20, Pressure=1},
+            new Measurement(){Id=2,DateAndTime= DateTime.Now.Date.AddDays(-4), Temperature=(decimal)2.0, Humidity = 30, Pressure=1},
+            new Measurement(){Id=3,DateAndTime= DateTime.Now.Date.AddDays(-4), Temperature=(decimal)3.5, Humidity = 40, Pressure=1},
+            new Measurement(){Id=4,DateAndTime= DateTime.Now.Date.AddDays(-4), Temperature=(decimal)4.0, Humidity = 50, Pressure=1},
+            new Measurement(){Id=5,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)3.2, Humidity = 55, Pressure=1},
+            new Measurement(){Id=6,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)1.0, Humidity = 80, Pressure=1},
+            new Measurement(){Id=7,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)1.2, Humidity = 54, Pressure=1},
+            new Measurement(){Id=8,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)6.0, Humidity = 60, Pressure=1},
+            new Measurement(){Id=9,DateAndTime= DateTime.Now.Date.AddDays(-2), Temperature=(decimal)3.4, Humidity = 70, Pressure=1}
         };
 
 
@@ -52,7 +52,7 @@ namespace TitanicWeather.Managers.Tests
             IEnumerable<Measurement> ourData = data.Where(x => x.DateAndTime.Date == currentDate);
             SummarizedData res = manager.SummarizeDataForTheDay(data.Where(x => x.DateAndTime.Date == currentDate),currentDate);
             //assert
-            Assert.AreEqual(new DateTime(2021,12,7), res.Date);
+            Assert.AreEqual(DateTime.Now.Date.AddDays(-2), res.Date);
             Assert.AreEqual((decimal)6.0,res.MaxTemp);
             Assert.AreEqual((decimal)1.0,res.MinTemp);
             Assert.AreEqual(54,res.MinHumid);
@@ -65,7 +65,7 @@ namespace TitanicWeather.Managers.Tests
             DateTime currentDate = DateTime.Now.Date.AddDays(0);
             SummarizedData res = manager.SummarizeDataForTheDay(data.Where(x => x.DateAndTime.Date == currentDate), currentDate);
             //assert
-            Assert.AreEqual(new DateTime(2021, 12, 9), res.Date);
+            Assert.AreEqual(DateTime.Now.Date, res.Date);
             Assert.AreEqual(0, res.MaxTemp);
             Assert.AreEqual(0, res.MinTemp);
             Assert.AreEqual(0, res.MinHumid);
