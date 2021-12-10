@@ -1,9 +1,9 @@
 # TitanicWeather
-Description:
+##Description:
 This is a semester project we made in the 3rd semester of computer science in zealand.
 Our idea was to make a weather application with a Raspberry Pi. The main idea is that we measure data on the pi and send this to a web application using a rest-service.
 
-API method links:
+##API method links:
 
 Our weather API is published at this web address: https://titanicweatherapi.azurewebsites.net/
 
@@ -31,7 +31,7 @@ https://titanicweatherapi.azurewebsites.net/api/Titanic/SetHeatingLevel
 https://titanicweatherapi.azurewebsites.net/api/Titanic/SetPiIcon
 
 
-Instructions:
+##Instructions:
 
 CutePi:
 For the database to be updated both the TitanicUDPServer and RestClient projects should be running.
@@ -48,7 +48,7 @@ The 30MIN/60MIN button sets a parameter to be passed when the ON/OFF button is c
 
 The ON/OFF button turns on the heating (If the logic permits it, it won't work if the temperature is higher than 24°C.)
 
-Functionalities:
+##Functionalities:
 When you start the application you can see the home page. On this page you see the current weather, temperature, wind speed and humidity. (3rd party API)
 
 This page also updates the LED Matrix on the Raspberry Pi if all instructions have been followed.
